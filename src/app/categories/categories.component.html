@@ -1,0 +1,49 @@
+<h2>Categories and dishes</h2>
+<ul class="list-group">
+  <li *ngFor="let category of allCategories" class="list-group-item">
+    {{category.id}}: {{category.name}}: {{category.description}}
+    <ul class="list-group">
+      <li *ngFor="let dish of category.dishSet" class="list-group-item">
+        {{dish.id}}: {{dish.name}}: {{dish.description}}: {{dish.price}}
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="pt-3">Actions</h2>
+<div class="py-2">
+<input type="text" #categoryName placeholder="Name"/>
+<input type="text" #categoryDescription placeholder="Description" />
+
+<button (click)="addCategory(categoryName.value, categoryDescription.value)">Add category</button>
+</div>
+<div class="py-2">
+<input type="text" #categoryId placeholder="CateogoryId" />
+<input type="text" #dishName placeholder="Name"/>
+<input type="text" #dishDescription placeholder="Description" />
+<input type="text" #dishPrice placeholder="Price" />
+
+<button (click)="addDish(categoryId.value, dishName.value, dishDescription.value, dishPrice.value)">Add dish</button>
+</div>
+<div class="py-2">
+<input type="text" #dishId placeholder="dishId" />
+<button (click)="deleteDish(dishId.value)">Delete dish</button>
+</div>
+<div class="py-2">
+<input type="text" #categoryDeleteId placeholder="CategoryId" />
+<button (click)="deleteCategory(categoryDeleteId.value)">Delete category and its' diches</button>
+</div>
+
+<div class="py-2">
+<input type="text" #categoryEditId placeholder="CategoryId" />
+<input type="text" #categoryEditName placeholder="Name" />
+<input type="text" #categoryEditDescription placeholder="Description" />
+<button (click)="editCategory(categoryEditId.value, categoryEditName.value, categoryEditDescription.value)">Edit category</button>
+</div>
+<div class="py-2">
+<input type="text" #dishEditId placeholder="DishId" />
+<input type="text" #dishEditName placeholder="Name" />
+<input type="text" #dishEditDescription placeholder="Description" />
+<input type="text" #dishEditPrice placeholder="Price" />
+<button (click)="editDish(dishEditId.value, dishEditName.value, dishEditDescription.value, dishEditPrice.value)">Edit dish</button>
+</div>
